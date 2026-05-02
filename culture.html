@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Culture – Marrakech: The Red City</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fffaf5;
+      color: #333;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+      display: inline-block;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #ff9963;
+      padding-bottom: .3rem;
+    }
+
+    /* ── HERO ── */
+    .culture-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 360px;
+      background-image: url('images/traditional.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .culture-hero .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(42, 26, 14, 0.6);
+      z-index: 1;
+    }
+    .culture-hero .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 0 16px;
+    }
+    .culture-hero .hero-subtitle {
+      display: inline-block;
+      font-size: .85rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #ff9963;
+      border: 1px solid #ff9963;
+      border-radius: 30px;
+      padding: .3rem 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .culture-hero h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 3rem;
+      text-shadow: 2px 4px 12px rgba(0,0,0,.5);
+      margin-bottom: .6rem;
+    }
+    .culture-hero p {
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ── INTRO BAND ── */
+    .intro-band {
+      background-color: #2a1a0e;
+      color: #fff;
+      padding: 56px 0;
+      text-align: center;
+    }
+    .intro-band p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ── CULTURE CARDS ── */
+    .culture-card {
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.09);
+      background-color: #fff;
+      height: 100%;
+    }
+    .culture-card:hover {
+      box-shadow: 0 12px 32px rgba(255, 153, 99, 0.22);
+    }
+    .culture-card .card-stripe {
+      height: 6px;
+      background-color: #ff9963;
+    }
+    .culture-card .card-body {
+      padding: 1.6rem;
+    }
+    .culture-card .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: .8rem;
+    }
+    .culture-card .card-title {
+      font-family: 'Times New Roman', Times, serif;
+      color: #2a1a0e;
+      font-size: 1.2rem;
+    }
+    .culture-card .card-text {
+      font-size: .93rem;
+      line-height: 1.75;
+      color: #555;
+    }
+    .culture-card .badge-tag {
+      font-size: .75rem;
+      background-color: #fff3e8;
+      color: #ff9963;
+      border: 1px solid #ff9963;
+      border-radius: 30px;
+      padding: .2rem .7rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: .8rem;
+    }
+
+    /* ── GNAWA SECTION ── */
+    .gnawa-section {
+      background-color: #2a1a0e;
+      color: #fff;
+      padding: 70px 0;
+    }
+    .gnawa-section h2 {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+    }
+    .gnawa-section p {
+      line-height: 1.85;
+      font-size: .97rem;
+      opacity: .9;
+    }
+    .gnawa-fact {
+      background-color: rgba(255, 153, 99, 0.15);
+      border-left: 4px solid #ff9963;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+      font-size: .93rem;
+    }
+    .gnawa-fact strong {
+      color: #ff9963;
+    }
+
+    /* ── KAWKAB SECTION ── */
+    .kawkab-section {
+      background-color: #fff8f2;
+      padding: 70px 0;
+    }
+    .kawkab-section h2 {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+    }
+    .kawkab-box {
+      background-color: #2a1a0e;
+      border-radius: 16px;
+      padding: 2rem;
+      color: #fff;
+    }
+    .kawkab-box h3 {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .kawkab-box p {
+      font-size: .95rem;
+      line-height: 1.8;
+      opacity: .9;
+    }
+    .kawkab-stat {
+      text-align: center;
+      padding: 1.2rem;
+      background-color: rgba(255,153,99,.12);
+      border-radius: 12px;
+      border: 1px solid rgba(255,153,99,.3);
+    }
+    .kawkab-stat .stat-number {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ff9963;
+      line-height: 1;
+    }
+    .kawkab-stat .stat-label {
+      font-size: .82rem;
+      color: #ccc;
+      margin-top: .3rem;
+    }
+    .kawkab-badge {
+      display: inline-block;
+      background-color: #ff9963;
+      color: #fff;
+      border-radius: 30px;
+      padding: .25rem .9rem;
+      font-size: .8rem;
+      font-weight: 700;
+      margin: .2rem;
+    }
+
+    /* ── TRADITIONS ── */
+    .tradition-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+    .tradition-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ff9963;
+      color: #fff;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .tradition-title {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+      color: #2a1a0e;
+      margin-bottom: .3rem;
+    }
+    .tradition-text {
+      font-size: .93rem;
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── JEMAA EL FNA ── */
+    .jemaa-section {
+      padding: 70px 0;
+      background-color: #fffaf5;
+    }
+    .jemaa-section h2 {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+    }
+    .jemaa-card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      text-align: center;
+      height: 100%;
+    }
+    .jemaa-card .jemaa-icon {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+    }
+    .jemaa-card p {
+      font-size: .88rem;
+      color: #555;
+      margin: 0;
+    }
+    .jemaa-card strong {
+      display: block;
+      color: #2a1a0e;
+      font-size: .95rem;
+      margin-bottom: .3rem;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background-color: #2a1a0e;
+      color: #fff;
+      text-align: center;
+      padding: 64px 20px;
+    }
+    .cta-section h2 {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+    }
+    .btn-cta {
+      background-color: #ff9963;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: .75rem 2.2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-cta:hover {
+      background-color: #c9922a;
+      color: #fff;
+    }
+
+    section { padding: 70px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════ NAVBAR ══════════════════════ -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:#2a1a0e;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"
+         style="font-family:'Times New Roman', Times, serif; color:#ff9963; font-size:1.3rem;">
+        🌹 Marrakech
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="saints.html">The 7 Saints</a></li>
+          <li class="nav-item"><a class="nav-link" href="monuments.html">Monuments</a></li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold" href="culture.html"
+               style="color:#ff9963 !important;">Culture</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════ HERO ══════════════════════ -->
+  <section class="culture-hero p-0">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-subtitle">Living Heritage</span>
+      <h1>Culture & Traditions</h1>
+      <p>Music, art, and ancient customs that breathe life into the Red City every day.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ INTRO ══════════════════════ -->
+  <div class="intro-band">
+    <div class="container">
+      <h2 class="section-title" style="color:#ff9963;">A City Alive with Culture</h2>
+      <p class="mt-3">
+        Marrakech is not only a city of stones and monuments — it is a city of sound, colour,
+        and living tradition. From the hypnotic rhythms of Gnawa music to the vibrant chaos of
+        Jemaa el-Fna square, from ancient craft guilds to modern football clubs, the Red City
+        pulses with a cultural energy unlike anywhere else on earth.
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ CULTURE CARDS ══════════════════════ -->
+  <section>
+    <div class="container">
+      <h2 class="section-title mb-5">Cultural Highlights</h2>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="culture-card">
+            <div class="card-stripe"></div>
+            <img src="images/gnawa.jpg" class="img-fluid" alt="Gnawa" style="width:100%; height:200px; object-fit:cover;">
+            <div class="card-body">
+              <span class="badge-tag">Music</span>
+              <h5 class="card-title">Gnawa Music</h5>
+              <p class="card-text">
+                A UNESCO-listed spiritual music rooted in sub-Saharan Africa,
+                Gnawa combines hypnotic rhythms, call-and-response chanting,
+                and trance ceremonies. The annual Gnawa World Music Festival
+                in Essaouira draws artists and fans from across the globe.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="culture-card">
+            <div class="card-stripe"></div>
+            <img src="images/dakka.jpg" class="img-fluid" alt="Dakka" style="width:100%; height:200px; object-fit:cover;">
+            <div class="card-body">
+            
+              <span class="badge-tag">Music</span>
+              <h5 class="card-title">Dakka Marrakchia</h5>
+              <p class="card-text">
+                A uniquely Marrakchi percussion tradition performed by large groups
+                of musicians playing tbel drums and qaraqeb castanets. Performed
+                during festivals, weddings, and Ramadan, Dakka was inscribed on
+                UNESCO's intangible cultural heritage list in 2005.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="culture-card">
+            <div class="card-stripe"></div>
+            <img src="images/crafts.jpg" class="img-fluid" alt="Crafts" style="width:100%; height:200px; object-fit:cover;">
+            <div class="card-body">
+
+              <span class="badge-tag">Crafts</span>
+              <h5 class="card-title">Traditional Crafts</h5>
+              <p class="card-text">
+                The souks of Marrakech are home to master craftsmen practising
+                centuries-old trades: zellige tile-making, leather tanning in the
+                famous tanneries, hand-woven carpets, brass lanterns, and
+                intricate woodcarving. Each craft is a living art form passed
+                from master to apprentice.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="culture-card">
+            <div class="card-stripe"></div><img src="images/cuisine.jpg" class="img-fluid" alt="Cuisine" style="width:100%; height:200px; object-fit:cover;">
+            <div class="card-body">
+              
+              <span class="badge-tag">Cuisine</span>
+              <h5 class="card-title">Marrakchi Cuisine</h5>
+              <p class="card-text">
+                Marrakech is a city of extraordinary flavours. From slow-cooked
+                lamb tagine with preserved lemons to pastilla — a sweet and
+                savoury pigeon pie dusted with sugar — and the famous mint tea
+                ceremony, food here is an act of hospitality and culture.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="culture-card">
+            <div class="card-stripe"></div>
+            <img src="images/dress.jpg" class="img-fluid" alt="Dress" style="width:100%; height:200px; object-fit:cover;">
+            <div class="card-body">
+             
+              <span class="badge-tag">Fashion</span>
+              <h5 class="card-title">Traditional Dress</h5>
+              <p class="card-text">
+                The djellaba, kaftan, and babouche slippers are not museum pieces
+                here — they are everyday wear. Marrakech blends Berber, Arab,
+                and Andalusian influences in its textiles, with hand-embroidered
+                garments worn proudly at celebrations and religious festivals.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="culture-card">
+            <div class="card-stripe"></div>
+            <img src="images/halqa.jpg" class="img-fluid" alt="Halqa" style="width:100%; height:200px; object-fit:cover;">
+            <div class="card-body">
+             
+              <span class="badge-tag">Storytelling</span>
+              <h5 class="card-title">Oral Traditions</h5>
+              <p class="card-text">
+                For centuries, Jemaa el-Fna square has been home to the
+                <em>halqa</em> — circles of storytellers, poets, and musicians
+                who captivate audiences with tales of heroes, saints, and
+                adventures. This living oral tradition is recognised by UNESCO
+                as an intangible world heritage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ GNAWA ══════════════════════ -->
+  <section class="gnawa-section">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <h2>🎵 Gnawa: The Soul of Marrakech</h2>
+          <p class="mt-3">
+            Gnawa music is one of Morocco's most powerful and spiritual art forms.
+            Brought to North Africa by enslaved West Africans centuries ago, it evolved
+            into a unique tradition that blends Islamic mysticism with ancient African
+            healing rituals. The music is performed during <em>lila</em> ceremonies —
+            all-night spiritual gatherings aimed at healing and connecting with ancestral spirits.
+          </p>
+          <p>
+            In Marrakech, Gnawa masters known as <em>Maalem</em> lead these ceremonies,
+            playing the three-stringed <em>guembri</em> bass lute while their group responds
+            with iron castanets called <em>qaraqeb</em>. The music is inseparable from colour,
+            costume, and trance — a full sensory experience of faith and culture.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="gnawa-fact">
+            <strong>🎸 The Guembri</strong> — A three-stringed bass lute made from camel skin,
+            considered the sacred heart of Gnawa music.
+          </div>
+          <div class="gnawa-fact">
+            <strong>🎵 UNESCO Recognition</strong> — Gnawa music was inscribed on UNESCO's
+            Representative List of Intangible Cultural Heritage in 2019.
+          </div>
+          <div class="gnawa-fact">
+            <strong>🌙 The Lila Ceremony</strong> — All-night healing rituals where colour,
+            music, and trance combine in a powerful spiritual experience.
+          </div>
+          <div class="gnawa-fact">
+            <strong>🌍 Global Influence</strong> — Gnawa rhythms have influenced jazz, blues,
+            and world music artists from Jimi Hendrix to Randy Weston.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ CLUB KAWKAB MARRAKECH ══════════════════════ -->
+  <section class="kawkab-section">
+    <div class="container">
+      <h2 class="section-title mb-2">⚽ Club Kawkab Marrakech</h2>
+      <p style="color:#666; font-size:.97rem; max-width:680px; margin-bottom:2rem;">
+        Football is culture too — and in Marrakech, no club embodies the spirit of the city
+        more than Club Kawkab Marrakech, known to fans simply as <strong>KACM</strong>.
+      </p>
+
+      <div class="row g-4 align-items-start">
+
+        <div class="col-lg-7">
+          <div class="kawkab-box text-center"><img src="images/kacm.jpg" alt="KACM Logo" style="width: 120px; height: auto; margin-bottom: 20px; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));">
+            <h3>⭐ About the Club</h3>
+            <p>
+              Founded on <strong>20 September 1947</strong> by <strong>Hadj Idriss Talbi</strong>,
+              Kawkab Athletic Club of Marrakesh (KACM) is one of Morocco's most historic football clubs.
+              The club was founded during a period of growing nationalist sentiment, symbolising
+              local pride and athletic ambition in the pre-independence era.
+            </p>
+            <p>
+              The club's traditional colours are <strong>red and white</strong>, and its crest
+              features a star — derived from "Kawkab," the Arabic word for "star" or "planet."
+              KACM has been a significant institution in Moroccan sporting culture for over
+              75 years, competing at the highest levels of Moroccan football.
+            </p>
+            <p>
+              The club remains an important part of the sporting and cultural life of Marrakech,
+              representing the city with pride on the national stage.
+            </p>
+            <div class="mt-3">
+              <span class="kawkab-badge">🔴 Founded 20 Sept 1947</span>
+              <span class="kawkab-badge">⚪ Red & White</span>
+              <span class="kawkab-badge">⭐ Kawkab = Star</span>
+              <span class="kawkab-badge">🇲🇦 Botola Pro</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="kawkab-stat">
+                <div class="stat-number">1947</div>
+                <div class="stat-label">Founded 20 Sept 1947</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="kawkab-stat">
+                <div class="stat-number">75+</div>
+                <div class="stat-label">Years of History</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="kawkab-stat">
+                <div class="stat-number">🔴⚪</div>
+                <div class="stat-label">Club Colours: Red & White</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div style="background-color:#fff3e8; border-left:4px solid #ff9963; border-radius:8px; padding:1rem;">
+                <p class="mb-0" style="color:#5a3010; font-size:.9rem; line-height:1.7;">
+                  ⭐ <strong>Did you know?</strong> KACM was founded by Hadj Idriss Talbi during
+                  a period of growing Moroccan nationalism — making it a symbol of local pride
+                  even before independence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ TRADITIONS ══════════════════════ -->
+  <section style="background-color:#fffaf5;">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <h2 class="section-title">Living Traditions</h2>
+          <p style="color:#666; font-size:.95rem; margin-bottom:2rem;">
+            Beyond music and sport, Marrakech is kept alive by daily rituals and
+            traditions that have endured for centuries.
+          </p>
+
+          <div class="tradition-item">
+            <div class="tradition-icon">🍵</div>
+            <div>
+              <div class="tradition-title">The Mint Tea Ceremony</div>
+              <p class="tradition-text">
+                Offering mint tea — poured from a height to create foam — is the
+                cornerstone of Moroccan hospitality. To refuse is considered impolite;
+                to accept is to enter a bond of friendship and trust.
+              </p>
+            </div>
+          </div>
+
+          <div class="tradition-item">
+            <div class="tradition-icon">🌙</div>
+            <div>
+              <div class="tradition-title">Ramadan in Marrakech</div>
+              <p class="tradition-text">
+                During Ramadan, the city transforms at sunset. The call to Maghrib
+                prayer silences the streets momentarily before families break their
+                fast with harira soup, chebakia pastries, and dates. Jemaa el-Fna
+                fills with music and life throughout the night.
+              </p>
+            </div>
+          </div>
+
+          <div class="tradition-item">
+            <div class="tradition-icon">🎊</div>
+            <div>
+              <div class="tradition-title">Fantasia (Tbourida)</div>
+              <p class="tradition-text">
+                A traditional equestrian performance where riders in colourful costumes
+                charge in formation and fire muskets simultaneously in the air. Recognised
+                by UNESCO, Tbourida is performed at moussems (festivals) across Morocco.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── JEMAA EL FNA ── -->
+        <div class="col-lg-6">
+          <h2 class="section-title">Jemaa el-Fna: The World's Stage</h2>
+          <p style="color:#666; font-size:.95rem; margin-bottom:1.5rem;">
+            The great square at the heart of Marrakech is a UNESCO masterpiece of
+            oral and intangible heritage — a different world at every hour of the day.
+          </p>
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="jemaa-card">
+                <div class="jemaa-icon">🐍</div>
+                <strong>Snake Charmers</strong>
+                <p>A tradition stretching back centuries, drawing curious crowds from around the world.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="jemaa-card">
+                <div class="jemaa-icon">📖</div>
+                <strong>Storytellers</strong>
+                <p>The Halqa tradition — circles of storytellers keeping oral history alive.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="jemaa-card">
+                <div class="jemaa-icon">🥁</div>
+                <strong>Musicians</strong>
+                <p>Gnawa, Berber, and Andalusian musicians fill the square with sound every evening.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="jemaa-card">
+                <div class="jemaa-icon">🍢</div>
+                <strong>Food Stalls</strong>
+                <p>At night, the square transforms into a giant open-air restaurant of Moroccan cuisine.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ CTA ══════════════════════ -->
+  <div class="cta-section">
+    <h2>Ready to Experience Marrakech?</h2>
+    <p style="max-width:480px; margin:.8rem auto 1.8rem;">
+      Get in touch with us and start planning your journey to the Red City.
+    </p>
+    <a href="contact.html" class="btn-cta">Contact Us &rarr;</a>
+  </div>
+
+  <!-- ══════════════════════ FOOTER ══════════════════════ -->
+  <footer style="background-color:#1a0e06; color:#ccc; text-align:center; padding:24px 16px; font-size:.88rem;">
+    <p class="mb-0">
+      &copy; 2025 Marrakech: The Red City — All rights reserved.
+      &nbsp;|&nbsp; Built with HTML5, CSS3 &amp; JavaScript.
+    </p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript: تأثير ظهور الأقسام عند التمرير -->
+  <script>
+    // كيخلي عناصر الصفحة تبان بشكل تدريجي فاش يوصل إليها المستخدم
+    var elements = document.querySelectorAll('.culture-card, .gnawa-fact, .kawkab-stat, .tradition-item, .jemaa-card');
+
+    elements.forEach(function(el) {
+      el.style.opacity = '0';
+    });
+
+    window.addEventListener('scroll', function() {
+      elements.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          el.style.opacity = '1';
+        }
+      });
+    });
+
+    // تأكد أن العناصر الظاهرة بالفعل تبان فوراً
+    window.dispatchEvent(new Event('scroll'));
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

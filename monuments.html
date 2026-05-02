@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monuments – Marrakech: The Red City</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    
+    .monuments-hero {
+      position: relative;
+      height: 55vh;
+      min-height: 340px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Marrakesh_Jemaa_el_Fna_square.jpg/1280px-Marrakesh_Jemaa_el_Fna_square.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .monuments-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      background-color: rgba(224, 112, 64, 0.5); 
+      z-index: 0;
+      
+    }
+    .monuments-hero .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+    }
+    .monuments-hero h1 {
+      font-family: 'Times New Roman', Times, serif ;
+      font-size: 3rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,.5);
+      letter-spacing: .04em;
+    }
+    .monuments-hero p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.1rem;
+      opacity: .9;
+    }
+
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      color:  #ff9963;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #ff9963;
+    }
+    
+    #monumentsSlider {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    }
+    #monumentsSlider .carousel-item {
+      height: 460px;
+    }
+    #monumentsSlider .carousel-item img {
+      width: 100%;
+      height: 100%;
+    }
+    #monumentsSlider .carousel-caption {
+      background: rgba(0,0,0,.52);
+      border-radius: 10px;
+      padding: 14px 20px;
+      bottom: 24px;
+    }
+    #monumentsSlider .carousel-caption h5 {
+       font-family: 'Times New Roman', Times, serif;;
+      font-size: 1.4rem;
+      color:  #ff9963;
+      margin-bottom: .3rem;
+    }
+    #monumentsSlider .carousel-caption p {
+      font-size: .9rem;
+      color: #f0e8d8;
+      margin: 0;
+    }
+    #monumentsSlider .carousel-control-prev-icon,
+    #monumentsSlider .carousel-control-next-icon {
+      
+    }
+    #monumentsSlider .carousel-indicators [data-bs-target] {
+      background-color:  #ff9963;
+    }
+
+    
+    .monument-card {
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,.10);
+      background: #fff;
+    }
+    .monument-card:hover {
+      box-shadow: 0 12px 32px rgba(255,153,99,.22);
+    }
+    .monument-card .card-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background:  #ff9963;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .monument-card .card-icon i {
+      color: #fff;
+      font-size: 1.4rem;
+    }
+    .monument-card .card-title {
+      font-family: 'Times New Roman', Times, serif;
+      color: #2a1a0e;
+    }
+    .monument-card .card-body {
+      padding: 1.6rem;
+    }
+    .monument-card .badge-tag {
+      background: #fff3e8;
+      color: var(--primary, #ff9963);
+      border: 1px solid  #ff9963;
+      font-size: .75rem;
+      border-radius: 30px;
+      padding: .25rem .75rem;
+      font-weight: 600;
+    }
+
+    /* ── Fun Facts ── */
+    .fact-band {
+      background-color: #e07040;
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+    }
+    .fact-band .fact-number {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .fact-band .fact-label {
+      font-size: .9rem;
+      opacity: .9;
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: .85rem;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: #e07040;
+      border-radius: 3px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -1.8rem;
+      top: .3rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ff9963;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px  #ff9963;
+    }
+    .timeline-year {
+      font-family: 'Times New Roman', Times, serif;
+      color:  #ff9963;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .timeline-text {
+      font-family: 'Lato', sans-serif;
+      color: #444;
+      font-size: .95rem;
+    }
+
+    /* General */
+    body { font-family: Arial, Helvetica, sans-serif; background: #fffaf5; }
+    section { padding: 70px 0; }
+    section:nth-child(even) { background: #fff8f2; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════ NAVBAR ══════════════════ -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background:#2a1a0e;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"
+         style="font-family:'Times New Roman', Times, serif; color:#ff9963; font-size:1.3rem;">
+        🌹 Marrakech
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="saints.html">The 7 Saints</a></li>
+          <li class="nav-item"><a class="nav-link active fw-bold" href="monuments.html"
+              style="color:#ff9963 !important;">Monuments</a></li>
+          <li class="nav-item"><a class="nav-link" href="culture.html">Culture</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section class="monuments-hero p-0" style="position: relative; width: 100%; height: 55vh; min-height: 340px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+  
+  <img src="images/monument.jpg" alt="Background" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100%; object-fit: cover; z-index: 0;">
+  
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(224, 112, 64, 0.2); z-index: 1;"></div>
+
+  <div class="hero-content" style="position: relative; z-index: 2; text-align: center; width: 100%; padding: 0 20px;">
+    <h1 style="color: #ffffff; font-family: 'Times New Roman', Times, serif; font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.9); margin-bottom: 10px;">
+      Historic Monuments
+    </h1>
+    <p style="color: #ffffff; font-size: 1.2rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.9);">
+      Stones that tell a thousand-year story
+    </p>
+  </div>
+
+</section>
+  <!-- ══════════════════ INTRO ══════════════════ -->
+  <section>
+    <div class="container text-center" style="max-width:760px;">
+      <h2 class="section-title">A City Written in Stone</h2>
+      <p class="mt-3" style="color:#555; font-size:1.05rem; line-height:1.8;">
+        Marrakech is one of Morocco's four imperial cities, home to some of the most
+        remarkable architecture in the Islamic world. From soaring minarets to serene
+        palace gardens, each monument carries centuries of history within its walls.
+        Listed as a <strong>UNESCO World Heritage Site</strong> since 1985, the medina
+        remains a living museum open to the world.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ SLIDER ══════════════════ -->
+  <section style="background:#fff8f2;">
+    <div class="container">
+      <h2 class="section-title mb-4">Gallery of Monuments</h2>
+
+      <div id="monumentsSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#monumentsSlider" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#monumentsSlider" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#monumentsSlider" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+          <!-- Slide 1 – Koutoubia -->
+          <div class="carousel-item active">
+                   <img src="images/koutoubia.jpg" alt="Koutoubia Mosque">
+            <!-- Fallback gradient when image is missing -->
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#c47a3a,#7a3a10);display:flex;align-items:center;justify-content:center;">
+              <i class="fa-solid fa-mosque" style="font-size:6rem;color:rgba(255,255,255,.25);"></i>
+            </div>
+            <div class="carousel-caption">
+              <h5>Koutoubia Mosque</h5>
+              <p>The tallest minaret in Marrakech — a beacon for travellers since the 12th century.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 – Bahia Palace -->
+          <div class="carousel-item">
+                   <img src="images/bahia.jpg" alt="Koutoubia Mosque">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#a05a2a,#4a2010);display:flex;align-items:center;justify-content:center;">
+              <i class="fa-solid fa-archway" style="font-size:6rem;color:rgba(255,255,255,.25);"></i>
+            </div>
+            <div class="carousel-caption">
+              <h5>Bahia Palace</h5>
+              <p>A 19th-century masterpiece of Moroccan-Andalusian craftsmanship and royal splendour.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 – Majorelle Garden -->
+          <div class="carousel-item">
+                   <img src="images/majorelle.jpg" alt="Koutoubia Mosque">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#2a6040,#0a3020);display:flex;align-items:center;justify-content:center;">
+              <i class="fa-solid fa-seedling" style="font-size:6rem;color:rgba(255,255,255,.25);"></i>
+            </div>
+            <div class="carousel-caption">
+              <h5>Majorelle Garden</h5>
+              <p>A vibrant botanical oasis of cobalt blue and exotic plants designed by Jacques Majorelle.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#monumentsSlider" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#monumentsSlider" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <!-- JS-powered Slide Info Panel -->
+      <div id="slideInfo" class="mt-4 p-3 rounded-3" style="background:#fff3e8;border-left:4px solid #ff9963;">
+        <p id="slideInfoText" class="mb-0" style="color:#5a3010;font-family:'Lato',sans-serif;">
+          <i class="fa-solid fa-circle-info me-2" style="color:#ff9963;"></i>
+          <strong>Koutoubia Mosque</strong> — Built in the 12th century under the Almohad dynasty,
+          its 70-metre minaret inspired both the Giralda in Seville and the Hassan Tower in Rabat.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ DETAIL CARDS ══════════════════ -->
+  <section>
+    <div class="container">
+      <h2 class="section-title mb-5">Featured Sites</h2>
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="monument-card card h-100">
+            <div class="card-body">
+              <img src="images/koutoubia.jpg" class="card-img-top" alt="Koutoubia" style="height: 200px; object-fit: cover; border-bottom: 3px solid #ff9963;">
+              <span class="badge-tag mb-2 d-inline-block">12th Century</span>
+              <h5 class="card-title mt-2">Koutoubia Mosque</h5>
+              <p class="card-text text-muted" style="font-size:.93rem; line-height:1.7;">
+                The spiritual heart of Marrakech. Non-Muslims may not enter, but the
+                surrounding gardens and the stunning minaret are open to all. Its
+                proportions (1:5 width-to-height ratio) became the standard for
+                Moroccan minarets for centuries.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="monument-card card h-100">
+            <div class="card-body">
+              <img src="images/bahia.jpg" class="card-img-top" alt="Bahia Palace" style="height: 200px; object-fit: cover; border-bottom: 3px solid #ff9963;">
+              <span class="badge-tag mb-2 d-inline-block">19th Century</span>
+              <h5 class="card-title mt-2">Bahia Palace</h5>
+              <p class="card-text text-muted" style="font-size:.93rem; line-height:1.7;">
+                Built for Si Moussa, grand vizier of the sultan, the Bahia ("brilliance")
+                Palace spans 8 hectares. Its 160 rooms are decorated with carved cedarwood
+                ceilings, zellij tilework, and ornamental stucco of extraordinary intricacy.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="monument-card card h-100">
+            <div class="card-body">
+              <img src="images/majorelle.jpg" class="card-img-top" alt="Majorelle Garden" style="height: 200px; object-fit: cover; border-bottom: 3px solid #ff9963;">
+              <span class="badge-tag mb-2 d-inline-block">1923 · YSL Legacy</span>
+              <h5 class="card-title mt-2">Majorelle Garden</h5>
+              <p class="card-text text-muted" style="font-size:.93rem; line-height:1.7;">
+                Created by French painter Jacques Majorelle and later restored by Yves
+                Saint Laurent, this 1-hectare garden features over 300 plant species
+                from five continents, set against the iconic "Majorelle Blue" architecture.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-4">
+          <div class="monument-card card h-100">
+            <div class="card-body">
+              <img src="images/Saadian.jpg" class="card-img-top" alt="Saadian Tombs" style="height: 200px; object-fit: cover; border-bottom: 3px solid #ff9963;">
+              <span class="badge-tag mb-2 d-inline-block">16th Century</span>
+              <h5 class="card-title mt-2">Saadian Tombs</h5>
+              <p class="card-text text-muted" style="font-size:.93rem; line-height:1.7;">
+                Sealed for centuries and rediscovered in 1917, these royal mausoleums
+                house the remains of Saadian sultans and their families. The Hall of
+                Twelve Columns, with its gilded plasterwork, is one of Morocco's
+                finest examples of Islamic art.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-4">
+          <div class="monument-card card h-100">
+            <div class="card-body">
+              <img src="images/menara.jpg" class="card-img-top" alt="Menara Gardens" style="height: 200px; object-fit: cover; border-bottom: 3px solid #ff9963;">
+              <span class="badge-tag mb-2 d-inline-block">12th Century</span>
+              <h5 class="card-title mt-2">Menara Gardens</h5>
+              <p class="card-text text-muted" style="font-size:.93rem; line-height:1.7;">
+                A vast olive grove surrounding a large reflecting pool, backed by the
+                Atlas Mountains. The 16th-century pavilion (menzeh) was used by sultans
+                for rest and reflection. The gardens offer one of Marrakech's most
+                iconic panoramas, especially at sunset.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-md-4">
+          <div class="monument-card card h-100">
+            <div class="card-body">
+              <img src="images/souk.jpg" class="card-img-top" alt="Medina Souks" style="height: 200px; object-fit: cover; border-bottom: 3px solid #ff9963;">
+              <span class="badge-tag mb-2 d-inline-block">Medieval · UNESCO</span>
+              <h5 class="card-title mt-2">The Medina Souks</h5>
+              <p class="card-text text-muted" style="font-size:.93rem; line-height:1.7;">
+                The ancient market district is itself a living monument. Stretching north
+                of Jemaa el-Fna, the souks are divided by trade — leather tanners, spice
+                merchants, weavers, and jewellers — preserving centuries-old guild
+                traditions within the UNESCO-listed medina walls.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FUN FACTS BAND ══════════════════ -->
+  <section style="background:#fff8f2;">
+    <div class="container">
+      <h2 class="section-title mb-5">Marrakech in Numbers</h2>
+      <div class="fact-band">
+        <div class="row text-center g-4">
+          <div class="col-6 col-md-3">
+            <div class="fact-number">70<span style="font-size:1.5rem;">m</span></div>
+            <div class="fact-label mt-1">Height of the Koutoubia minaret</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fact-number">1985</div>
+            <div class="fact-label mt-1">Year UNESCO listed the medina</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fact-number">19<span style="font-size:1.5rem;">km</span></div>
+            <div class="fact-label mt-1">Length of the ancient city walls</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fact-number">300<span style="font-size:1.5rem;">+</span></div>
+            <div class="fact-label mt-1">Plant species in Majorelle Garden</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TIMELINE ══════════════════ -->
+  <section>
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <h2 class="section-title mb-3">A Timeline of Stone</h2>
+          <p style="color:#666; font-size:.95rem;">
+            Each era left its mark on Marrakech — from the Almoravid founders to
+            modern-day preservation efforts.
+          </p>
+        </div>
+        <div class="col-lg-7">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">1070</div>
+              <div class="timeline-text">
+                Almoravid sultan Yusuf ibn Tashfin founds Marrakech. The first
+                city walls and mosque are erected.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">1158</div>
+              <div class="timeline-text">
+                Construction of the Koutoubia Mosque begins under the Almohad
+                dynasty — it remains the city's defining landmark.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">1578</div>
+              <div class="timeline-text">
+                The Saadian dynasty builds the royal tombs. The El Badi Palace,
+                once decorated with pure gold, is also constructed.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">1894</div>
+              <div class="timeline-text">
+                Construction of the Bahia Palace begins, blending Moroccan and
+                Andalusian architectural traditions.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">1923</div>
+              <div class="timeline-text">
+                Jacques Majorelle creates his legendary garden, later saved from
+                demolition by Yves Saint Laurent in 1980.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">1985</div>
+              <div class="timeline-text">
+                UNESCO declares the medina of Marrakech a World Heritage Site,
+                recognising its outstanding universal value.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ CTA ══════════════════ -->
+  <section style="background:linear-gradient(135deg,#2a1a0e,#5a2e10); color:#fff; text-align:center; padding:60px 20px;">
+    <h2 style="font-family:'Playfair Display',serif; color:#ff9963;">Continue Exploring</h2>
+    <p style="opacity:.85; max-width:500px; margin:.8rem auto 1.8rem;">
+      Dive deeper into the music, traditions, and living culture that make
+      Marrakech one of the world's most vibrant cities.
+    </p>
+    <a href="culture.html" class="btn btn-lg"
+       style="background:#ff9963;color:#fff;border:none;border-radius:30px;padding:.75rem 2.2rem;font-weight:700;">
+      Discover the Culture &rarr;
+    </a>
+  </section>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer style="background:#1a0e06; color:#ccc; text-align:center; padding:24px 16px; font-size:.88rem;">
+    <p class="mb-0">
+      &copy; 2025 Marrakech: The Red City — All rights reserved.
+      &nbsp;|&nbsp; Built with HTML5, CSS3 &amp; JavaScript.
+    </p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ══════ JavaScript: dynamic slide info panel ══════ -->
+  <script>
+    /**
+     * slide-info.js (inline)
+     * Listens to Bootstrap carousel events and updates the
+     * info panel below the slider with monument-specific text.
+     */
+
+    // Monument info data — one entry per slide (same order as .carousel-item)
+    const monumentInfo = [
+      {
+        name: 'Koutoubia Mosque',
+        fact: 'Built in the 12th century under the Almohad dynasty, its 70-metre minaret ' +
+              'inspired both the Giralda in Seville and the Hassan Tower in Rabat.'
+      },
+      {
+        name: 'Bahia Palace',
+        fact: 'The name "Bahia" means brilliance in Arabic. Its construction took over a decade ' +
+              'and involved hundreds of the finest craftsmen from all over Morocco.'
+      },
+      {
+        name: 'Majorelle Garden',
+        fact: 'The distinctive cobalt blue used throughout the garden is now officially known as ' +
+              '"Majorelle Blue" (Bleu Majorelle), named after its creator Jacques Majorelle.'
+      }
+    ];
+
+    const slider       = document.getElementById('monumentsSlider');
+    const slideInfoTxt = document.getElementById('slideInfoText');
+
+    /**
+     * updateInfo – reads the active slide index and updates the panel.
+     */
+    function updateInfo() {
+      // Find active item index
+      const items = slider.querySelectorAll('.carousel-item');
+      let activeIndex = 0;
+      items.forEach(function(item, idx) {
+        if (item.classList.contains('active')) activeIndex = idx;
+      });
+
+      const data = monumentInfo[activeIndex];
+      slideInfoTxt.innerHTML =
+        '<i class="fa-solid fa-circle-info me-2" style="color:#ff9963;"></i>' +
+        '<strong>' + data.name + '</strong> — ' + data.fact;
+    }
+
+    // Bootstrap fires 'slid.bs.carousel' after each slide transition
+    slider.addEventListener('slid.bs.carousel', updateInfo);
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

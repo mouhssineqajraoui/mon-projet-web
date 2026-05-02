@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The 7 Saints – Marrakech: The Red City</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fffaf5;
+      color: #333;
+    }
+
+    /* ── HERO ── */
+    .saints-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 360px;
+      background-image: url('images/7saints.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .saints-hero .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(42, 26, 14, 0.6);
+      z-index: 1;
+    }
+    .saints-hero .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 0 16px;
+    }
+    .saints-hero .hero-subtitle {
+      display: inline-block;
+      font-size: .85rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #ff9963;
+      border: 1px solid #ff9963;
+      border-radius: 30px;
+      padding: .3rem 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .saints-hero h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 3rem;
+      text-shadow: 2px 4px 12px rgba(0,0,0,.5);
+      margin-bottom: .6rem;
+    }
+    .saints-hero p {
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+      display: inline-block;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #ff9963;
+      padding-bottom: .3rem;
+    }
+
+    /* ── INTRO BAND ── */
+    .intro-band {
+      background-color: #2a1a0e;
+      color: #fff;
+      padding: 56px 0;
+    }
+    .intro-band p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .intro-band .arabic-ornament {
+      font-size: 2.5rem;
+      color: #ff9963;
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    /* ── SAINT CARDS ── */
+    .saints-grid {
+      padding: 70px 0;
+      background-color: #fffaf5;
+    }
+
+    .saint-card {
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.09);
+      background-color: #fff;
+      height: 100%;
+    }
+    .saint-card:hover {
+      box-shadow: 0 12px 32px rgba(255, 153, 99, 0.22);
+    }
+
+    .saint-card .card-stripe {
+      height: 6px;
+      background-color: #ff9963;
+    }
+
+    .saint-card .card-body {
+      padding: 1.6rem 1.6rem 1.2rem;
+    }
+
+    .saint-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #ff9963;
+      color: #fff;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .saint-card .saint-name {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.2rem;
+      color: #2a1a0e;
+      margin: 0;
+    }
+    .saint-card .saint-arabic {
+      font-size: .9rem;
+      color: #ff9963;
+      font-style: italic;
+      margin: 0;
+    }
+    .saint-card .saint-century {
+      font-size: .75rem;
+      background-color: #fff3e8;
+      color: #ff9963;
+      border: 1px solid #ff9963;
+      border-radius: 30px;
+      padding: .2rem .7rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: .5rem;
+    }
+    .saint-card .card-text {
+      font-size: .93rem;
+      line-height: 1.75;
+      color: #555;
+      margin-top: .8rem;
+    }
+    .saint-card .card-footer-custom {
+      padding: .8rem 1.6rem 1.2rem;
+      border-top: 1px solid #f5ece0;
+      font-size: .83rem;
+      color: #888;
+    }
+
+    /* ── ZIARA BOX ── */
+    .ziara-box {
+      background-color: #2a1a0e;
+      border-radius: 16px;
+      padding: 2rem;
+      color: #fff;
+    }
+    .ziara-box h3 {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+      font-size: 1.5rem;
+    }
+    .ziara-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .ziara-step .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: #ff9963;
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ziara-step .step-text {
+      font-size: .93rem;
+      line-height: 1.65;
+    }
+
+    /* ── QUOTE ── */
+    .quote-band {
+      background-color: #fff8f2;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .quote-band blockquote {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #2a1a0e;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .quote-band cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: .88rem;
+      color: #888;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background-color: #2a1a0e;
+      color: #fff;
+      text-align: center;
+      padding: 64px 20px;
+    }
+    .cta-section h2 {
+      font-family: 'Times New Roman', Times, serif;
+      color: #ff9963;
+    }
+    .btn-cta {
+      background-color: #ff9963;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: .75rem 2.2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-cta:hover {
+      background-color: #c9922a;
+      color: #fff;
+    }
+
+    section { padding: 70px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════ NAVBAR ══════════════════════ -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:#2a1a0e;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"
+         style="font-family:'Times New Roman', Times, serif; color:#ff9963; font-size:1.3rem;">
+        🌹 Marrakech
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold" href="saints.html"
+               style="color:#ff9963 !important;">The 7 Saints</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="monuments.html">Monuments</a></li>
+          <li class="nav-item"><a class="nav-link" href="culture.html">Culture</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════ HERO ══════════════════════ -->
+  <section class="saints-hero p-0">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-subtitle">Spiritual Heritage</span>
+      <h1>The Seven Saints<br>of Marrakech</h1>
+      <p>Seven scholars. Seven shrines. One sacred pilgrimage that has united the faithful for centuries.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ INTRO BAND ══════════════════════ -->
+  <div class="intro-band text-center">
+    <div class="container">
+      <span class="arabic-ornament">☽</span>
+      <h2 class="section-title" style="color:#ff9963;">The Rijal Sab'a</h2>
+      <p class="mt-3">
+        The <strong style="color:#ff9963;">Rijal Sab'a</strong> — "The Seven Men" — are the patron saints
+        of Marrakech, revered Islamic scholars and Sufi masters who lived and taught in the city
+        between the 11th and 17th centuries. Every year, thousands of pilgrims perform the
+        <em>Ziara</em>, a sacred circuit visiting each of the seven shrines in a single day,
+        seeking blessings, healing, and spiritual renewal. This tradition, initiated by Sultan
+        Moulay Ismail in the 17th century, remains one of Morocco's most profound living rituals.
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SAINTS GRID ══════════════════════ -->
+  <section class="saints-grid">
+    <div class="container">
+      <h2 class="section-title mb-5">Meet the Seven Saints</h2>
+      <div class="row g-4">
+
+        <!-- Saint 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="saint-card">
+            <div class="card-stripe"></div>
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="saint-number">1</div>
+                <div>
+                  <p class="saint-name mb-0">Sidi Youssef Ben Ali</p>
+                  <p class="saint-arabic">سيدي يوسف بن علي</p>
+                </div>
+              </div>
+              <span class="saint-century">12th Century</span>
+              <p class="card-text">
+                The most venerated of the seven, Sidi Youssef Ben Ali was a leper
+                who withdrew from society to devote himself entirely to God. Known
+                for his extraordinary patience and piety, he is buried south of the
+                medina and his shrine is always the first stop of the Ziara pilgrimage.
+              </p>
+            </div>
+            <div class="card-footer-custom">
+              📍 South of the medina · Bab Aghmat area
+            </div>
+          </div>
+        </div>
+
+        <!-- Saint 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="saint-card">
+            <div class="card-stripe"></div>
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="saint-number">2</div>
+                <div>
+                  <p class="saint-name mb-0">Sidi Ayyad</p>
+                  <p class="saint-arabic">سيدي عياض</p>
+                </div>
+              </div>
+              <span class="saint-century">11th – 12th Century</span>
+              <p class="card-text">
+                Cadi Ayyad was one of the greatest Islamic scholars of the medieval
+                period — a judge, theologian, and author of the renowned
+                <em>Al-Shifa</em>, a definitive biography of the Prophet Muhammad.
+                Born in Ceuta, he was exiled to Marrakech where he died and was buried.
+              </p>
+            </div>
+            <div class="card-footer-custom">
+              📍 Near Bab Aghmat · Southern medina
+            </div>
+          </div>
+        </div>
+
+        <!-- Saint 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="saint-card">
+            <div class="card-stripe"></div>
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="saint-number">3</div>
+                <div>
+                  <p class="saint-name mb-0">Sidi Abu al-Qasim al-Suhayli</p>
+                  <p class="saint-arabic">سيدي أبو القاسم السهيلي</p>
+                </div>
+              </div>
+              <span class="saint-century">1114 – 1185 CE</span>
+              <p class="card-text">
+                An Andalusian scholar of language and hadith, Sidi Abu al-Qasim al-Suhayli
+                settled in Marrakesh in his later years. Despite his great scholarly stature,
+                he lived simply and humbly, and students would travel from afar to learn from him.
+                He is buried near Qadi Iyad in the southern medina.
+              </p>
+            </div>
+            <div class="card-footer-custom">
+              📍 Southern medina · Near Qadi Iyad
+            </div>
+          </div>
+        </div>
+
+        <!-- Saint 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="saint-card">
+            <div class="card-stripe"></div>
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="saint-number">4</div>
+                <div>
+                  <p class="saint-name mb-0">Sidi Bel Abbès</p>
+                  <p class="saint-arabic">سيدي بلعباس</p>
+                </div>
+              </div>
+              <span class="saint-century">12th – 13th Century</span>
+              <p class="card-text">
+                The patron saint of Marrakech, Sidi Bel Abbès as-Sabti is the most
+                beloved figure in the city's spiritual life. He dedicated his life to
+                serving the blind and the poor, distributing food every evening at sunset.
+                His grand shrine in the northern medina remains an active centre of
+                charity and devotion to this day.
+              </p>
+            </div>
+            <div class="card-footer-custom">
+              📍 Northern medina · Sidi Bel Abbès quarter
+            </div>
+          </div>
+        </div>
+
+        <!-- Saint 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="saint-card">
+            <div class="card-stripe"></div>
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="saint-number">5</div>
+                <div>
+                  <p class="saint-name mb-0">Sidi Abdel Aziz</p>
+                  <p class="saint-arabic">سيدي عبد العزيز</p>
+                </div>
+              </div>
+              <span class="saint-century">14th – 15th Century</span>
+              <p class="card-text">
+                Sidi Abdel Aziz al-Tebaa was a devout scholar and Sufi who spent his
+                life in worship and teaching in Marrakech. Known for his asceticism
+                and deep spirituality, he is remembered as a teacher of teachers —
+                his influence shaped generations of Moroccan scholars.
+              </p>
+            </div>
+            <div class="card-footer-custom">
+              📍 Central medina
+            </div>
+          </div>
+        </div>
+
+        <!-- Saint 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="saint-card">
+            <div class="card-stripe"></div>
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="saint-number">6</div>
+                <div>
+                  <p class="saint-name mb-0">Sidi Al-Ghazwani</p>
+                  <p class="saint-arabic">سيدي الغزواني</p>
+                </div>
+              </div>
+              <span class="saint-century">15th – 16th Century</span>
+              <p class="card-text">
+                Known as "Moulay al-Ksour," Sidi al-Ghazwani was a prominent Sufi
+                scholar celebrated for his wisdom and spiritual authority. He was a
+                student of Al-Jazouli and became one of the most influential figures
+                in the spread of Sufism throughout Morocco.
+              </p>
+            </div>
+            <div class="card-footer-custom">
+              📍 Western medina
+            </div>
+          </div>
+        </div>
+
+        <!-- Saint 7 -->
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="saint-card">
+            <div class="card-stripe"></div>
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="saint-number">7</div>
+                <div>
+                  <p class="saint-name mb-0">Sidi Mohammed Ben Slimane al-Jazouli</p>
+                  <p class="saint-arabic">سيدي محمد بن سليمان الجزولي</p>
+                </div>
+              </div>
+              <span class="saint-century">15th Century</span>
+              <p class="card-text">
+                A revered Sufi master and poet, Sidi Mohammed Ben Slimane al-Jazouli
+                was the founder of the Jazouliyya Sufi brotherhood. He authored the
+                celebrated <em>Dala'il al-Khayrat</em>, a collection of prayers upon
+                the Prophet that is still recited across the Muslim world today.
+              </p>
+            </div>
+            <div class="card-footer-custom">
+              📍 Medina · Near Bab Doukkala
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ ZIARA GUIDE ══════════════════════ -->
+  <section style="background-color:#fff8f2;">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title">The Ziara Pilgrimage</h2>
+          <p style="color:#666; font-size:.97rem; line-height:1.8;" class="mt-2">
+            The <strong>Ziara</strong> (زيارة — "visit") is a sacred one-day circuit of
+            all seven shrines, traditionally performed on foot through the winding streets
+            of the medina. Initiated by Sultan Moulay Ismail in the 17th century as a way
+            to unite the city's spiritual life, it draws pilgrims from across Morocco and
+            beyond every year.
+          </p>
+          <div class="ziara-box mt-4">
+            <h3>🚶 How the Ziara Works</h3>
+            <div class="ziara-step mt-3">
+              <div class="step-num">1</div>
+              <div class="step-text">Begin at dawn at the shrine of <strong>Sidi Youssef Ben Ali</strong>, the most venerated of the seven saints.</div>
+            </div>
+            <div class="ziara-step">
+              <div class="step-num">2</div>
+              <div class="step-text">Walk the medina streets in a specific order, visiting each shrine, reciting prayers and offering blessings.</div>
+            </div>
+            <div class="ziara-step">
+              <div class="step-num">3</div>
+              <div class="step-text">At each mausoleum, pilgrims light candles, burn incense, and ask the saint for intercession.</div>
+            </div>
+            <div class="ziara-step">
+              <div class="step-num">4</div>
+              <div class="step-text">Complete the circuit at the grand shrine of <strong>Sidi Bel Abbès</strong>, the city's beloved patron saint.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="p-4 rounded-3" style="background-color:#fff3e8; border-left: 4px solid #ff9963;">
+            <p class="mb-0" style="color:#5a3010; font-size:.93rem; line-height:1.75;">
+              ⭐ <strong>When to visit:</strong> The grand annual Ziara takes place in the
+              Islamic month of <em>Rajab</em>. However, individual shrines are open
+              year-round for personal visits, and the atmosphere around the
+              <em>Sidi Bel Abbès</em> quarter is always alive with devotion and activity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ QUOTE ══════════════════════ -->
+  <div class="quote-band">
+    <blockquote>
+      "He who walks the Ziara walks in the footsteps of a thousand years of faith,
+      humility, and the unbroken love of a city for its saints."
+    </blockquote>
+    <cite>— Moroccan Proverb</cite>
+  </div>
+
+  <!-- ══════════════════════ CTA ══════════════════════ -->
+  <div class="cta-section">
+    <h2>Continue Exploring Marrakech</h2>
+    <p style="max-width:480px; margin:.8rem auto 1.8rem;">
+      Discover the historic monuments and living culture that make the Red City
+      one of the world's most unforgettable destinations.
+    </p>
+    <a href="monuments.html" class="btn-cta me-2">View Monuments &rarr;</a>
+    <a href="culture.html" class="btn-cta" style="background-color:transparent; border:2px solid #ff9963;">
+      Explore Culture
+    </a>
+  </div>
+
+  <!-- ══════════════════════ FOOTER ══════════════════════ -->
+  <footer style="background-color:#1a0e06; color:#ccc; text-align:center; padding:24px 16px; font-size:.88rem;">
+    <p class="mb-0">
+      &copy; 2025 Marrakech: The Red City — All rights reserved.
+      &nbsp;|&nbsp; Built with HTML5, CSS3 &amp; JavaScript.
+    </p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
